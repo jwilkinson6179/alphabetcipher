@@ -6,7 +6,7 @@ public class AlphabetCipher {
 
         for(int i = 0; i < message.length(); i++)
         {
-            Integer keyOffset = (int)key.charAt(i % 3) - 97; // +2 for 'c', +0 for 'a'
+            Integer keyOffset = (int)key.charAt(i % key.length) - 97; // +2 for 'c', +0 for 'a'
             Integer letterUnicodeIdx = (int)message.charAt(i) - 97;
             Character letter = (char)(((letterUnicodeIdx + keyOffset + 26) % 26) + 97);
             encryptedMessage.append(letter);
@@ -21,7 +21,7 @@ public class AlphabetCipher {
 
         for(int i = 0; i < message.length(); i++)
         {
-            Integer keyOffset = (int)key.charAt(i % 3) - 97;
+            Integer keyOffset = (int)key.charAt(i % key.length) - 97;
             Integer letterUnicodeIdx = (int)message.charAt(i) - 97;
             Character letter = (char)(((letterUnicodeIdx - keyOffset + 26) % 26) + 97);
             decryptedMessage.append(letter);
